@@ -18,23 +18,14 @@ def index(request):
 def manu(request):
 
 	if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        #form = NameForm(request.POST)
-        # check whether it's valid:
-        #if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
 		password = request.POST["inputPassword2"]
-        #sss = request.POST.get('inputPassword2')
-	if password == '1111' :
-		return render(request,"manu.html",locals())
 
-	# if a GET (or any other method) we'll create a blank form
+	if password == '1111' :
+
+		return render(request,"manu.html",locals())
+		
 	else:
-		context = {"error": "Error"}
-		#form = NameForm()
-		# return render(request,"lotto.html",locals())
+
 		return render(request,"index.html",locals()) 
 
 
