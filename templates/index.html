@@ -63,57 +63,56 @@
 <br>
 
 
-<div class="position-absolute top-30% start-50 translate-middle-x">
-  <center>
-    <form class="row g-3" method="POST" action="/manu/"> <!--action="/passsecond/"-->
-      <br/>{% csrf_token %}<br/>
-      {% if error %}
-      <p style='color:red;'>{{error}}</p>
-      {% endif %}
-      <div class="col-auto" >
-          <input type="password" class="form-control" name="inputPassword2" placeholder="輸入密碼">
-      </div>
-      <div class="col-auto" >
-          <button type="submit" class="btn btn-primary mb-3">確定</button>
-      </div>
-    </form>
-  </td>
-  </center>
-</div>
+  
 
-
-<div class="position-absolute bottom-0 start-50 translate-middle-x">
-
+<!--<div class="position-absolute bottom-0 start-50 translate-middle-x">
       <br>天天開心<br><br><br>
-</div>
+</div>-->
 <div class="container">
   <div class="row">
     <div class="col">
-        <div class="card" style="width: 50%;">
-          <img src='/static/cover.jpg' class="card-img-top" alt="...">
-          <div class="card-body">
-            <h4><p class="card-text">smile</p></h4>
-           </div>
-        </div>
-    
+      <form class="float-end" method="POST" action="/manu/"> <!--action="/passsecond/"-->
+        {% csrf_token %}
+<!--        {% if error %}
+        <p style='color:red;'>{{error}}</p>
+        {% endif %}
+        <div class="col" >
+            <input class="d-none d-print-block" type="password" class="form-control" name="inputPassword2" placeholder="輸入密碼">
+        </div>-->
+            <input style="width: 150px;"type="password" class="form-control me-2" name="inputPassword2" placeholder="password=1111">
+      </form>
     </div>
-    
-   <div class="col">
-    <br><hr>
-      <div class="alert alert-dark" role="alert">
-        <h4><p>????</p>
-        </h4>
-      </div>  
+    <div class="col">
+      <button type="submit" class="btn btn-primary mb-3">確定</button>
     </div>
   </div>
+<br>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-5">
+      <div class="card" style="width: 100%; "><!--style="width: 150px ;"-->
+        <img src='/static/cover.jpg' style="width: 100% ;" class="card" alt="...">
+          <div class="card-body">
+            <h4><p class="card-text">smile</p></h4>
+          </div>
+      </div>
+    </div>
+    
+    <div class="col">
+        <div class="alert alert-dark" role="alert">
+          <h4><p>????</p></h4>
+        </div>  
+    </div>
+
+  </div>
 </div>
-<div class="clearfix hidden-xs"></div>
  
-  	<center>
-    		  <br>版權沒有 歡迎使用</br>
-          <hr><br><br>
-    </center>
- 
+<center>
+      <br>天天開心<br>
+		  <br>版權沒有 歡迎使用</br>
+      <hr><br><br>
+</center>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
