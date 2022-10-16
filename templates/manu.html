@@ -1,33 +1,3 @@
-<script type="text/HTML">  
-if (document.referrer === ''){ 
-    document.open();
-    document.write('<p>非法瀏覽當前頁面,<span id="second" >3</span>秒鐘之後跳轉</p>');
-    document.close();
-} 
-</script>
-
-<script type="text/javascript"> 
-   var num = document.getElementById("second").innerHTML;  
-   function count()  
-    {  
-        num--;  
-        document.getElementById("second").innerHTML=num;  
-        if(num==0)  
-        {  
-            location.assign("#");  
-        }
-        if(num<0)  
-        {  
-            location.assign("/passfirst/");  
-       }    
-   }  
-    setInterval("count()",1000);  
-function back()  
-   {  
-       window.history.back();  
-  }  
- </script>   
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -64,7 +34,8 @@ function back()
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a id="reportErr" class="btn btn-grayblue text-white mr-2 py-1 px-2">報錯</a>
+          <a id="reportErr" class="nav-link">Link</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -116,7 +87,23 @@ function back()
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
+<script>  
+var submit=0;
+$(document).ready(function(){
+  $("#reportErr").click(function(){
+  if(submit==0){
+    $.get("/member/msgautoreport.aspx?submit=1&r=0&title=ERROR-REPORT&content="+document.location.href,function(){
+      $("#reportErr").text("已提交");
+      submit=1;
+      alert("感謝您的回報，我們會在24小時内進行修正。請稍後查看。");
+    });}
+  });
+  
+    $("#setting").click(function(){
+       $(".contentbts_menu").toggle();
+    })
+});
+ </script>  
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
